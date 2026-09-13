@@ -1,0 +1,22 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Equipamentos_1 = require("./equipamentos/Equipamentos");
+const Bardo_1 = require("./modelos/Bardo");
+const Berserker_1 = require("./modelos/Berserker");
+const Clerigo_1 = require("./modelos/Clerigo");
+const personagens = [];
+const arrayEquipamentos = [];
+const inventario = [];
+const equip = new Equipamentos_1.Equipamento('AK-47', 45);
+const equip2 = new Equipamentos_1.Equipamento('GLOCK', 25);
+arrayEquipamentos.push(equip);
+arrayEquipamentos.push(equip2);
+const ragnar = new Berserker_1.Berserker(inventario, arrayEquipamentos);
+const lucio = new Bardo_1.Bardo(inventario, arrayEquipamentos);
+const elowen = new Clerigo_1.Clerigo(inventario, arrayEquipamentos);
+personagens.push(ragnar);
+personagens.push(lucio);
+personagens.push(elowen);
+personagens.forEach(p => {
+    p.fichaPersonagem();
+});
