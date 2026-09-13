@@ -1,1 +1,0 @@
-// Sua arma tem um dano maior que os outros, e consegue carregar mais equipamentos.
