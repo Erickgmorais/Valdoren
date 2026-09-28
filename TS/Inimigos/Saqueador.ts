@@ -2,6 +2,7 @@
 import { blue, red, yellow } from "../Auxiliares/Cores";
 import { Inimigo } from "../Interfaces/Inimigo";
 import { Personagem } from "../Personagens/Personagem";
+import { stop } from "../Auxiliares/Auxiliares";
 
 export class Saqueador implements Inimigo {
     private nome: string = 'Saqueador do Cemiterio';

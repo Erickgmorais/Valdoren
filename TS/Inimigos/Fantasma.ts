@@ -84,7 +84,6 @@ Com uma chance de 40%, esse inimigo poderá se esquivar totalmente do dano do se
     ║                                               ║
     ╚═══════════════════════════════════════════════╝
         `)
-        stop()
         } else {
 
             this.vida -= danoFinal;
@@ -97,7 +96,6 @@ Com uma chance de 40%, esse inimigo poderá se esquivar totalmente do dano do se
     Dano efetivo recebido: ${danoFinal}
 -- ----------------------------------------- -- 
         `)
-        stop()
 
         }
 

@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Saqueador = void 0;
 //Chance de roubar ouro do personagem em vez de atacar
 const Cores_1 = require("../Auxiliares/Cores");
+const Auxiliares_1 = require("../Auxiliares/Auxiliares");
 class Saqueador {
     constructor() {
         this.nome = 'Saqueador do Cemiterio';
@@ -45,7 +46,7 @@ em vez de atacar normalmente.
     Dano efetivo recebido: ${danoFinal}
 -- ----------------------------------------- --    
         `);
-        stop();
+        (0, Auxiliares_1.stop)();
         if (this.vida < 0) {
             this.vida = 0;
             return dano;
@@ -73,7 +74,7 @@ em vez de atacar normalmente.
         ╚════════════════════════════════════════╝
             `);
         personagem.tomarDano(danoFinal);
-        stop();
+        (0, Auxiliares_1.stop)();
     }
     //Método de habilidade do inimigo
     usarHabilidade(personagem) {
