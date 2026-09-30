@@ -82,7 +82,6 @@ export function criaPersonagem(): Personagem {
 `);
 
         const opcao = ask.questionInt('Escolha sua classe: ');
-
         // Primeiro escolhe a classe
         switch (opcao) {
 

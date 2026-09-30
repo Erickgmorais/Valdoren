@@ -15,14 +15,7 @@ const ReiOssos_1 = require("../Inimigos/ReiOssos");
 Criei um inimigo que será um boss
 Alterei o CASE 1 da PARTE 2, PARTE4ESCADALATERAL
 CAMINHO2PARTE5 coloquei confronto com o BOSS
-
 */
-//Inimigos
-const esqueleto = new Esqueleto_1.Esqueleto();
-const dragao = new Dragao_1.Dragao();
-const fadaCorrompida = new FadaCorrompida_1.FadaCorrompida();
-const fantasma = new Fantasma_1.Fantasma();
-const saqueador = new Saqueador_1.Saqueador();
 let encontrouReiOssos = false;
 //Não acho necessário esse controle
 //let controle: boolean = false
@@ -201,11 +194,11 @@ const parte2 = (personagem) => {
                     break;
                 }
                 else {
-                    (0, exports.caminho1Pt2)(personagem, esqueleto, false);
+                    (0, exports.caminho1Pt2)(personagem, new Esqueleto_1.Esqueleto(), false);
                     break;
                 }
             case 2:
-                (0, exports.caminho2Pt2)(personagem, saqueador);
+                (0, exports.caminho2Pt2)(personagem, new Saqueador_1.Saqueador());
                 break;
             case 3:
                 (0, Auxiliares_1.consoleSaindo)();
@@ -425,7 +418,7 @@ const caminho1Pt3 = (personagem) => {
         '\nembaixo - e quem quer que esteja lá na frente, está fazendo barulho' +
         '\no suficiente para ser ouvido de longe.');
     (0, Auxiliares_1.stop)();
-    (0, exports.parte4CorredorPrincipal)(personagem, fantasma);
+    (0, exports.parte4CorredorPrincipal)(personagem, new Fantasma_1.Fantasma());
 };
 exports.caminho1Pt3 = caminho1Pt3;
 //Caso personagem escolha DESCER PELA ESCADA LATERAL
@@ -449,7 +442,7 @@ const parte4CorredorPrincipal = (personagem, inimigo) => {
         '\nse movem ao redor de um pilar rachado no centro - o próprio selo,' +
         '\ngravado com o mesmo símbolo do sino da Catedral.');
     (0, Auxiliares_1.stop)();
-    if (personagem.getReputacao() >= 15) {
+    if (personagem.getReputacao() >= 10) {
         (0, Auxiliares_1.clear)();
         (0, Cores_1.cyan)('\nUm dos encapuzados se vira e hesita ao reconhecer você. Rumores' +
             '\nsobre um forasteiro confiável já correram por Ravenfall - ele parece' +
@@ -576,7 +569,7 @@ const parte4EscadaLateral = (personagem) => {
                     break;
                 }
                 else {
-                    (0, exports.caminho1Pt4)(personagem, fadaCorrompida, false);
+                    (0, exports.caminho1Pt4)(personagem, new FadaCorrompida_1.FadaCorrompida(), false);
                     break;
                 }
             case 2:
@@ -727,7 +720,13 @@ const caminho1Pt5 = (personagem) => {
     personagem.setReputacao(-5);
     (0, Cores_1.white)('\n(-5 de reputação: guardar segredos tem um preço, mesmo sem ninguém saber)');
     (0, Auxiliares_1.stop)();
-    (0, exports.parte6)(personagem, dragao, false, false);
+    (0, Auxiliares_1.clear)();
+    (0, Cores_1.cyan)('\nAo se afastar do pilar rachado, um rugido profundo e distante ecoa pelas' +
+        '\npedras - grave demais para ser humano, próximo demais para ser ignorado.' +
+        '\nVocê sente o chão vibrar de leve sob seus pés e percebe que não está tão' +
+        '\nsozinho nas profundezas quanto pensava.');
+    (0, Auxiliares_1.stop)();
+    (0, exports.parte6)(personagem, new Dragao_1.Dragao(), false, false);
 };
 exports.caminho1Pt5 = caminho1Pt5;
 //Caso personagem escolha DEIXAR O SELO SE ROMPER
@@ -792,7 +791,7 @@ const parte6 = (personagem, inimigo, romperSelo, jaEncontrouReiOssos) => {
     // Reação do inimigo final baseada na reputação acumulada durante a jornada
     (0, Auxiliares_1.clear)();
     if (romperSelo) {
-        if (personagem.getReputacao() >= 15) {
+        if (personagem.getReputacao() >= 10) {
             if (jaEncontrouReiOssos) {
                 (0, Cores_1.purple)('\nO Rei dos Ossos permanece em silêncio por alguns segundos, observando você.' +
                     '\n\nSeus olhos brilham através do crânio.' +
@@ -815,7 +814,7 @@ const parte6 = (personagem, inimigo, romperSelo, jaEncontrouReiOssos) => {
             }
             (0, Auxiliares_1.stop)();
         }
-        else if (personagem.getReputacao() <= -15) {
+        else if (personagem.getReputacao() <= -10) {
             if (jaEncontrouReiOssos) {
                 (0, Cores_1.purple)('\nO Rei dos Ossos observa você em silêncio por alguns segundos.' +
                     '\n\nSeus olhos brilham intensamente dentro do crânio.' +
@@ -849,7 +848,7 @@ const parte6 = (personagem, inimigo, romperSelo, jaEncontrouReiOssos) => {
         }
     }
     else {
-        if (personagem.getReputacao() >= 15) {
+        if (personagem.getReputacao() >= 10) {
             (0, Cores_1.purple)('\nO Dragão ergue a cabeça lentamente, os olhos antigos fixos em você.' +
                 '\n\n— Ouvi falar de você em Ravenfall... o forasteiro que ajudou mais' +
                 '\ndo que destruiu.' +
@@ -858,7 +857,7 @@ const parte6 = (personagem, inimigo, romperSelo, jaEncontrouReiOssos) => {
                 '\nrespeito antes da batalha.');
             (0, Auxiliares_1.stop)();
         }
-        else if (personagem.getReputacao() <= -15) {
+        else if (personagem.getReputacao() <= -10) {
             (0, Cores_1.purple)('\nO Dragão solta um rosnado profundo antes mesmo de você se aproximar.' +
                 '\n\n— Sei quem você é.' +
                 '\n\n— O mesmo que saqueou os mortos e traiu quem confiou em você para chegar até aqui.' +
@@ -885,7 +884,7 @@ const parte6 = (personagem, inimigo, romperSelo, jaEncontrouReiOssos) => {
     (0, Auxiliares_1.stop)();
     (0, Auxiliares_1.clear)();
     if (romperSelo) {
-        if (personagem.getReputacao() >= 15) {
+        if (personagem.getReputacao() >= 10) {
             (0, Cores_1.white)('\n=== FINAL: O Despertar Aceito ===');
             (0, Cores_1.cyan)('\nO selo permanece rompido, liberando uma energia antiga que ninguém em Ravenfall' +
                 '\nserá capaz de ignorar. O Rei dos Ossos foi derrotado, mas sua libertação' +

@@ -53,7 +53,6 @@ em vez de atacar normalmente.
     Dano efetivo recebido: ${danoFinal}
 -- ----------------------------------------- --    
         `)
-        stop()
 
         if (this.vida < 0) {
             this.vida = 0;
